@@ -1,0 +1,85 @@
+<html>
+  
+<head>
+   <script src="/js/loanvalidate.js"></script> 
+   <link rel="stylesheet" href="/css/loan_style.css">
+  
+   <script>
+     function loadForm(form)
+     {
+     
+      // This code will be executed only when loan details are entered and invalid data is passed.
+      // If data is passed in url due to error, since invalid data is entered in loan details page , then execute the following block
+      // If data is passed after error, retain those values in text boxes.
+      var query = window.location.search.substring(1); 
+      if (query) {
+          var vars = query.split("&"); 
+          if (vars.length > 1)
+          {
+              for (var i = 0; i < vars.length; i++) 
+              { 
+                 var pair = vars[i].split("="); 
+                 if (pair[0] && pair[0] == "loan_val")
+                 {  
+                      form.elements["loan_val"].value = unescape(pair[1]);
+                 }
+                 else if (pair[0] && pair[0] == "prop_val")
+                 {  
+                      form.elements["prop_val"].value = unescape(pair[1]);
+                 }
+                 else if (pair[0] && pair[0] == "ssn")
+                 {  
+                      form.elements["ssn"].value = unescape(pair[1]);
+                 }
+                 else if (pair[0] && pair[0] == "error")
+                 {  
+                       document.getElementById("error").innerHTML = unescape(pair[1]);
+                 }
+              } 
+          }
+      }
+    }
+  </script>
+</head>
+
+<body onload="loadForm(document.forms[0]);">
+ <form name="loanaccept" id="loan" method="POST" action="loan_submit.php" onsubmit="return validateData();">
+  <div id="loanform" align="center">
+        <img src="/images/logo.png">
+        <h2 class="main-header">
+          Loan Acceptance Form
+        </h2>
+       <div class="rowspace">
+         <label id="error" class="errorclass"></label>
+       </div>
+       <div id="dloan" class="rowspace">
+             <div class="label">
+                  <label class="labelcol">Loan Amount : </label>
+             </div>
+             <div class="field">
+               <input class="textfieldcol" type=text name="loan_val" id="loan_val" placeholder="Enter loan amount  Ex: 150000" maxlength=30>
+             </div>
+       </div>
+       <div id="dpropval" class="rowspace">
+            <div class="label">
+                 <label class="labelcol">Property Value : </label>
+            </div>
+            <div class="field">
+                <input class="textfieldcol" type=text name="prop_val" id="prop_val" placeholder="Enter Property value  Ex: 100000" maxlength=30>
+            </div>
+       </div>
+       <div id="dssn" class="rowspace">
+            <div class="label">
+                 <label class="labelcol">SSN : </label>
+            </div>
+            <div class="field">
+                <input class="textfieldcol" type=text id="ssn" name="ssn" placeholder="Enter SSN  Ex:xxx-xx-xxxx" maxlength=15>
+            </div>
+       </div>
+       <input type="submit" name="submit" id="submitApplication" class="button" value="Submit" />
+   </div>
+
+ </form>
+</body>
+  
+  </html>

@@ -1,0 +1,46 @@
+.rowspace {
+  margin-bottom: 15px;
+  width:100%;
+}
+
+.label {
+    width: 50%;
+    float: left;
+    margin-bottom: 15px;
+}
+
+.labelcol {
+  float:right;
+  width:140px;
+  margin-right:15px;
+  text-align:right;
+}
+
+
+.field {
+     width:50%;
+     float:left;
+     margin-bottom: 15px;
+}
+
+.textfieldcol {
+     width:400px;
+     float:left;
+}
+
+.main-header {
+  color: Black;
+  font-weight: 400;
+  line-height: 1.5rem;
+  font-size: 2rem;
+  padding-right: 60px; }
+
+.errorclass {
+  color:red;
+  font-weight: 400;
+  font-size: 1rem;
+  margin-bottom: 25px;
+}
+
+
+

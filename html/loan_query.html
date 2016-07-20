@@ -1,0 +1,29 @@
+<html>
+ <head>
+   <script src="/js/loanvalidate.js"></script> 
+     <link rel="stylesheet" href="/css/loan_style.css">
+  </head>
+
+<body>
+ <form name="loandetails" id="loan" method="GET" action="loan_details.php" onsubmit="return validateLoan();">
+  <div id="loanform" align="center">
+        <img src="/images/logo.png">
+        <h2 class="main-header">
+          Loan Details
+        </h2>
+       <div class="rowspace">
+         <label id="error" class="errorclass"></label>
+       </div>
+       <div id="loan" class="rowspace">
+             <div class="label">
+                  <label class="labelcol">Loan ID : </label>
+             </div>
+             <div class="field">
+               <input class="textfieldcol" type=text name="loan_id" id="id" placeholder="Enter loan id  Ex: 1" maxlength=30>
+             </div>
+       </div>
+       <input type="submit" name="submit" id="submitApplication" class="button" value="Submit" />
+   </div>
+  </form>
+</body>
+</html>
